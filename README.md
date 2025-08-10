@@ -1,9 +1,9 @@
 # acme_createOrder
 
 Proyecto Java (JAX-RS) que contiene:
-- MScreateOrder
 - MScreateOrderPurshase (nuevo) que orquesta MScheckInventory -> MScreateOrder
-- MScheckInventory is expected to be available at http://host/QA/MS/purshase/MScheckInventory/V1/chekProductInventory/{productId}
+- MScheckInventory revisa si existe producto en inventario http://host/QA/MS/purshase/MScheckInventory/V1/chekProductInventory/{productId}
+- MScreateOrder
 
 Build:
   mvn clean package
@@ -18,3 +18,6 @@ Test example (curl):
     -H "date: 2025-07-14T16:55:44.992" \
     -H "X-API-Key: dummy" \
     -d '{"productId":"000000000000001234","units":1,"price":100,"clientID":"CUST001"}'
+
+Elaborado Por:
+Oscar E. Cruz Prieto.
