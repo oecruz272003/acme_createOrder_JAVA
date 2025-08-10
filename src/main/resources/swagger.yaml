@@ -1,0 +1,51 @@
+openapi: 3.0.1
+info:
+  title: acme_createOrder API
+  version: 1.0.0
+paths:
+  /MS/purshase/MScreateOrderPurshase/V1/createOrder:
+    post:
+      summary: Orquesta checkInventory -> createOrder
+      parameters:
+        - name: transactionID
+          in: header
+          required: true
+          schema:
+            type: string
+        - name: date
+          in: header
+          required: true
+          schema:
+            type: string
+        - name: X-API-Key
+          in: header
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrderRequest'
+      responses:
+        '200':
+          description: OK
+components:
+  schemas:
+    OrderRequest:
+      type: object
+      properties:
+        productId:
+          type: string
+        units:
+          type: integer
+        price:
+          type: number
+        clientID:
+          type: string
+        product_description:
+          type: string
+        product_category:
+          type: string
+      required: [productId, units, price, clientID]
